@@ -1,0 +1,14 @@
+name = "canvas-homework-compiler-llm-proxy"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+# The real LLM provider's API base URL (e.g. "https://api.ifm.ai/v1").
+# Not a secret — just a URL. Override it with `wrangler secret put` instead if
+# you'd rather not have it in this file.
+PROVIDER_BASE_URL = "https://api.ifm.ai/v1"
+
+# Optional: restrict CORS to your extension's exact origin instead of "*".
+# Find your extension ID in chrome://extensions, then set this to:
+# "chrome-extension://<your-extension-id>"
+# ALLOWED_ORIGIN = "chrome-extension://niphcnbcjlikccdadddgloadakfbkanc"

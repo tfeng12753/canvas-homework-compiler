@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Canvas Homework Compiler",
+  "version": "0.1.0",
+  "description": "Scans your Canvas courses for homework/practice material in a date range and compiles the questions into one document.",
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_page": "src/options/options.html",
+  "background": {
+    "service_worker": "src/background/index.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "identity"],
+  "optional_host_permissions": ["*://*/*"],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArbHNr+Q+nj1uDA7h0oKNnlH68mb0CsxtsPmVNvnKMpBhHxwXBXytoghjNjKEBrN+sKYwU9F0FF/dn5tW/X8NV+9H00Ij7Huccg+cyVJC8irsfPCDdWKe18RFtX3swY1kLKu0otdwJjt6R8utXIEpOgtrdq+vw48SDPilcgX7tDmiBcuS+eqd76tx3x1wIff8iodVxJ2acCWdtXf55tgAb3GgVVmhPmOUX/Ov9DR4uvl7iqrunayjqnbzDDYApGU6b/b8CEP+ZvtIKM1tXZfz+uUIj3UoEK2YCHrtnI+yXI1Yms47iTMwUTdCn4Jjpj71aNCP4jBIHTHLhlOz/oiQvwIDAQAB",
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/calendar"]
+  }
+}

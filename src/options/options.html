@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Canvas Homework Compiler — Settings</title>
+    <style>
+      body {
+        font-family: -apple-system, system-ui, sans-serif;
+        max-width: 520px;
+        margin: 2rem auto;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 15px;
+        margin-top: 2rem;
+        color: #2b4a7d;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 12px 0 4px;
+      }
+      input {
+        width: 100%;
+        padding: 6px 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 13px;
+      }
+      .hint {
+        font-size: 12px;
+        color: #666;
+        margin-top: 2px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      button {
+        padding: 7px 14px;
+        border-radius: 6px;
+        border: 1px solid #2b4a7d;
+        background: white;
+        color: #2b4a7d;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button.primary {
+        background: #2b4a7d;
+        color: white;
+      }
+      #status {
+        margin-top: 12px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Canvas Homework Compiler — Settings</h1>
+    <p class="hint">
+      Everything below is stored only in this browser (<code>chrome.storage.local</code>) and is sent only to the exact
+      Canvas domain and LLM endpoint you configure here. Nothing is sent anywhere else.
+    </p>
+
+    <h2>Canvas</h2>
+    <label for="canvasBaseUrl">Canvas URL</label>
+    <input id="canvasBaseUrl" placeholder="https://yourschool.instructure.com" />
+
+    <label for="canvasToken">API Token (optional)</label>
+    <input id="canvasToken" type="password" placeholder="Leave blank to use your logged-in browser session instead" />
+    <div class="hint">
+      Generate one under Canvas → Account → Settings → "New Access Token". If your school blocks tokens, leave this
+      blank — the extension will fall back to using your normal logged-in session.
+    </div>
+
+    <div class="row">
+      <button id="grantAccess">Grant Access to This Canvas Site</button>
+      <button id="testCanvas">Test Connection</button>
+    </div>
+
+    <h2>LLM Provider</h2>
+    <p class="hint">Any OpenAI-compatible chat-completions endpoint (base URL should NOT include <code>/chat/completions</code>).</p>
+    <p class="hint">
+      Some providers (IFM included) reject requests made directly from a browser/extension origin. If Test LLM fails
+      with something like <code>model_origin_not_allowed</code> but works fine from curl, that's why — see
+      <code>proxy/README.md</code> in this project for a small server-side forwarder that fixes it. If you use it,
+      set Base URL to your deployed proxy URL and API Key to the proxy's shared secret (not your real provider key).
+    </p>
+    <label for="llmBaseUrl">Base URL</label>
+    <input id="llmBaseUrl" placeholder="https://api.example.com/v1" />
+
+    <label for="llmApiKey">API Key</label>
+    <input id="llmApiKey" type="password" placeholder="sk-..." />
+
+    <label for="llmModel">Model</label>
+    <input id="llmModel" placeholder="e.g. k2, gpt-4o-mini, claude-3-5-sonnet" />
+
+    <div class="row">
+      <button id="testLlm">Test LLM</button>
+    </div>
+
+    <div class="row">
+      <button class="primary" id="save">Save Settings</button>
+    </div>
+
+    <h2>Gradescope (for Calendar Sync)</h2>
+    <p class="hint">
+      Gradescope has no personal access token option, so this uses your normal logged-in browser session (same
+      approach as the Canvas fallback) — just make sure you're logged into Gradescope in this browser.
+    </p>
+    <div class="row">
+      <button id="grantGradescope">Grant Access to Gradescope</button>
+      <button id="testGradescope">Test Connection</button>
+    </div>
+
+    <h2>Google Calendar (for Calendar Sync)</h2>
+    <p class="hint">
+      Due dates are synced into a dedicated "Homework Compiler" calendar in your Google account — it won't touch
+      your existing calendars. Requires a one-time Google sign-in prompt the first time you sync.
+    </p>
+    <div class="row">
+      <button id="connectGoogle">Connect Google Calendar</button>
+    </div>
+
+    <div id="status"></div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

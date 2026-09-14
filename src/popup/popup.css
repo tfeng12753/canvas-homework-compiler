@@ -1,0 +1,231 @@
+body {
+  width: 340px;
+  font-family: -apple-system, system-ui, sans-serif;
+  padding: 12px;
+  color: #1a1a1a;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0;
+}
+
+#openOptions {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 10px 0 4px;
+  color: #444;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #1a1a1a;
+  margin: 8px 0 0;
+}
+
+.checkbox-row input {
+  margin: 0;
+}
+
+.select-all-row {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 4px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #2b4a7d;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.course-list {
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.course-list label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+  color: #1a1a1a;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date-row input {
+  flex: 1;
+}
+
+textarea#forceUrls {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.hint {
+  font-size: 11px;
+  color: #777;
+  margin-top: 3px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#compileBtn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px;
+  background: #2b4a7d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+#compileBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 4px 0 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 6px 4px;
+  border: none;
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-btn.active {
+  color: #2b4a7d;
+  border-bottom: 2px solid #2b4a7d;
+}
+
+button.secondary {
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px;
+  background: white;
+  color: #2b4a7d;
+  border: 1px solid #2b4a7d;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#syncBtn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px;
+  background: #2b4a7d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.notice {
+  background: #fff6e0;
+  border: 1px solid #f0d78c;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.error {
+  background: #fde8e8;
+  border: 1px solid #f0a0a0;
+  color: #7a1f1f;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-top: 10px;
+  white-space: pre-wrap;
+}
+
+#progress {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #444;
+}
+
+#preview {
+  max-height: 220px;
+  overflow-y: auto;
+  background: #f7f7f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 11px;
+  white-space: pre-wrap;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #2b4a7d;
+  background: white;
+  color: #2b4a7d;
+  font-weight: 600;
+}

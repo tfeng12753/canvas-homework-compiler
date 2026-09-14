@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Canvas Homework Compiler</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Homework Compiler</h1>
+      <button id="openOptions" title="Settings">⚙</button>
+    </header>
+
+    <div id="setupNotice" class="notice" hidden>
+      Set your Canvas URL in <a href="#" id="setupLink">Settings</a> first.
+    </div>
+
+    <div id="tabs" class="tabs">
+      <button class="tab-btn active" id="tabDocBtn">Practice Doc</button>
+      <button class="tab-btn" id="tabCalBtn">Calendar Sync</button>
+    </div>
+
+    <section id="docPanel" class="panel">
+      <label>Courses</label>
+      <div class="select-all-row">
+        <button type="button" class="link-btn" data-select-all="courseList">Select all</button>
+        <button type="button" class="link-btn" data-select-none="courseList">Select none</button>
+      </div>
+      <div id="courseList" class="course-list">Loading courses…</div>
+
+      <label>Date range</label>
+      <div class="date-row">
+        <input type="date" id="startDate" />
+        <span>to</span>
+        <input type="date" id="endDate" />
+      </div>
+      <label class="checkbox-row">
+        <input type="checkbox" id="ignoreDateRange" />
+        Include all dates (ignore date range)
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="includeSolutions" />
+        Include solution/answer-key files
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="flatQuestionList" />
+        Combine into one flat question list (skip due dates/links)
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="generateSimilar" />
+        Generate additional similar practice problems (AI-generated)
+      </label>
+
+      <label>Force-include specific pages/files (optional)</label>
+      <textarea
+        id="forceUrls"
+        rows="2"
+        placeholder="Paste a Canvas page or file URL, one per line — e.g. https://canvas.cmu.edu/courses/56034/pages/homework-files"
+      ></textarea>
+      <div class="hint">Use this if automatic discovery misses something you know is homework — it skips detection and is always included.</div>
+
+      <button id="compileBtn">Compile Homework</button>
+
+      <section id="progress" hidden>
+        <div id="progressText">Working…</div>
+      </section>
+
+      <section id="results" hidden>
+        <h2>Preview</h2>
+        <pre id="preview"></pre>
+        <div class="actions">
+          <button id="downloadMd">Download Markdown</button>
+          <button id="exportPdf">Export PDF</button>
+        </div>
+      </section>
+
+      <section id="errorBox" class="error" hidden></section>
+    </section>
+
+    <section id="calPanel" class="panel" hidden>
+      <label>Canvas Courses</label>
+      <div class="select-all-row">
+        <button type="button" class="link-btn" data-select-all="calCanvasCourseList">Select all</button>
+        <button type="button" class="link-btn" data-select-none="calCanvasCourseList">Select none</button>
+      </div>
+      <div id="calCanvasCourseList" class="course-list">Loading courses…</div>
+
+      <label>Gradescope Courses</label>
+      <div class="select-all-row">
+        <button type="button" class="link-btn" data-select-all="calGsCourseList">Select all</button>
+        <button type="button" class="link-btn" data-select-none="calGsCourseList">Select none</button>
+      </div>
+      <div id="calGsCourseList" class="course-list">Not loaded yet</div>
+      <button id="loadGsCoursesBtn" class="secondary">Load Gradescope Courses</button>
+
+      <label>Sync date range</label>
+      <div class="date-row">
+        <input type="date" id="calStartDate" />
+        <span>to</span>
+        <input type="date" id="calEndDate" />
+      </div>
+
+      <button id="syncBtn">Sync to Google Calendar</button>
+
+      <section id="calProgress" hidden>
+        <div id="calProgressText">Working…</div>
+      </section>
+
+      <section id="calResult" hidden>
+        <div id="calResultText"></div>
+      </section>
+
+      <section id="calErrorBox" class="error" hidden></section>
+    </section>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
